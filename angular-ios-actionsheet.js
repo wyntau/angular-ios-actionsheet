@@ -3,7 +3,7 @@
  * iOS7+ style actionsheet service for angular
  * License: MIT
  * Author: Treri
- * build: Fri Sep 04 2015 17:42:40 GMT+0800 (CST)
+ * build: Fri Sep 04 2015 21:03:51 GMT+0800 (CST)
  **/
 angular.module('ios-actionsheet', [])
 .directive('iosActionSheet', function(){

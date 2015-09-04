@@ -91,7 +91,7 @@
   font-weight: bold;
 }
 .ios-actionsheet-button.ios-actionsheet-button-disable, .ios-actionsheet-label.ios-actionsheet-button-disable{
-  opacity: 0.95;
+  /*opacity: 0.95;*/
   color: #8e8e93;
 }
 .ios-actionsheet-button:first-child, .ios-actionsheet-label:first-child {
