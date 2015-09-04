@@ -23,7 +23,7 @@ buttonObject keys:
 - label, boolean
 - onClick, function, a data object which contains index, parentIndex and button will be passed in
 
-    one example of buttonObject
+    an example of buttonObject
     ```js
     {
         text: 'button',
