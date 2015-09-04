@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui" />
+  <title>angular-ios-actionsheet</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <style>
+    html{
+      font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    }
+    .wrap{
+      width: 500px;
+      margin: 10px auto 0;
+    }
+    .demo{
+      margin-bottom: 20px;
+    }
+    pre{
+      margin: 0;
+    }
+    .output, .desc{
+      margin: 10px 0;
+    }
+    .pure-form legend{
+      border-bottom: none;
+      border-top: 1px solid #e5e5e5;
+      padding-top: 10px;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+
+    .button-secondary {
+        color: white;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        background: rgb(66, 184, 221); /* this is a light blue */
+    }
+  </style>
+  <link rel="stylesheet" href="../angular-ios-actionsheet.css">
+</head>
+<body>
+  <div class="wrap">
+    <div ng-controller="Ctrl1" class="demo">
+      <form action="" class="pure-form">
+        <fieldset>
+          <legend>sing button group</legend>
+          <div class="desc"></div>
+          <pre><code>
+    iosActionSheet([
+      {
+        text: 'sing goup button',
+        label: true
+      },
+      {
+        text: 'button1'
+      },
+      {
+        text: 'button with bold',
+        bold: true
+      },
+      {
+        text: 'button with color',
+        color: true
+      }
+    ])
+          </code></pre>
+          <div class="output">
+            output: {{output | json}}
+          </div>
+          <button type="button" class="pure-button button-secondary" ng-click="demo()">demo</button>
+      </form>
+    </div>
+    <div ng-controller="Ctrl2" class="demo">
+      <form action="" class="pure-form">
+        <fieldset>
+          <legend>multi button group</legend>
+          <div class="desc"></div>
+          <pre><code>
+    iosActionSheet([
+      [
+        {
+          text: 'multi button group',
+          label: true,
+          color: true
+        }
+      ],
+      [
+        {
+          text: 'button in next group',
+          label: true
+        },
+        {
+          text: 'button disabled',
+          disable: true
+        },
+        {
+          text: 'button with click callback',
+          onClick: function(data){
+            alert(JSON.stringify(data));
+          }
+        }
+      ]
+    ])
+          </code></pre>
+          <div class="output">
+            output: {{output | json}}
+          </div>
+          <button type="button" class="pure-button button-secondary" ng-click="demo()">demo</button>
+      </form>
+    </div>
+  </div>
+  <a href="https://github.com/Treri/angular-ios-actionsheet"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+  <script src="http://ajax.useso.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="http://ajax.useso.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js"></script>
+  <script src="../angular-ios-actionsheet.js"></script>
+  <script>
+    angular.module('demo', ['ngAnimate', 'ios-actionsheet'])
+    .controller('Ctrl1', [
+      '$scope',
+      'iosActionSheet',
+      function($scope, iosActionSheet){
+        $scope.demo = function(){
+          iosActionSheet([
+            {
+              text: 'sing goup button',
+              label: true
+            },
+            {
+              text: 'button1'
+            },
+            {
+              text: 'button with bold',
+              bold: true
+            },{
+              text: 'button with color',
+              color: true
+            }
+          ]).then(function(data){
+            $scope.output = data;
+          }, function(){
+            $scope.output = 'rejected';
+          })
+        };
+      }
+    ])
+    .controller('Ctrl2', [
+      '$scope',
+      'iosActionSheet',
+      function($scope, iosActionSheet){
+        $scope.demo = function(){
+          iosActionSheet([
+            [
+              {
+                text: 'multi button group',
+                label: true,
+                color: true
+              }
+            ],[
+              {
+                text: 'button in next group',
+                label: true
+              },
+              {
+                text: 'button disabled',
+                disable: true
+              },
+              {
+                text: 'button with click callback',
+                onClick: function(data){
+                  alert(JSON.stringify(data));
+                }
+              }
+            ]
+          ]).then(function(data){
+            $scope.output = data;
+          }, function(){
+            $scope.output = 'rejected';
+          })
+        }
+      }
+    ])
+  </script>
+</body>
+</html>

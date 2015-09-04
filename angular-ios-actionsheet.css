@@ -1,0 +1,133 @@
+/*!
+ * angular-ios-actionsheet 1.0.0
+ * iOS7+ style actionsheet service for angular
+ * License: MIT
+ * Author: Treri
+ * build: Fri Sep 04 2015 17:42:40 GMT+0800 (CST)
+ **/
+.ios-actionsheet-overlay{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: #000;
+  font-size: 14px;
+  line-height: 1.4;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10600;
+  -webkit-transition-duration: .4s;
+          transition-duration: .4s;
+  -webkit-transition-property: opacity;
+          transition-property: opacity;
+}
+.ios-actionsheet-overlay.ng-enter, .ios-actionsheet-overlay.ng-leave-active{
+  opacity: 0;
+}
+.ios-actionsheet-overlay.ng-enter-active{
+  opacity: 1;
+}
+.ios-actionsheet-overlay *{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.ios-actionsheet{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 11000;
+  width: 100%;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+  -webkit-transition-property: -webkit-transform;
+          transition-property: transform;
+  -webkit-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+}
+.ios-actionsheet-overlay.ng-enter .ios-actionsheet, .ios-actionsheet-overlay.ng-leave-active .ios-actionsheet{
+  -webkit-transform: translate3d(0,100%,0);
+          transform: translate3d(0,100%,0);
+}
+.ios-actionsheet-overlay.ng-enter-active .ios-actionsheet{
+  -webkit-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+}
+
+.ios-actionsheet-group{
+  margin: 8px;
+}
+.ios-actionsheet-button, .ios-actionsheet-label {
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  margin: 0;
+  background: rgba(243,243,243,.95);
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+}
+.ios-actionsheet-button:after, .ios-actionsheet-label:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: auto;
+  top: auto;
+  height: 1px;
+  width: 100%;
+  background-color: #d2d2d6;
+  display: block;
+  z-index: 15;
+  -webkit-transform-origin: 50% 100%;
+      -ms-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+}
+.ios-actionsheet-label {
+  font-size: 13px;
+  line-height: 1.3;
+  min-height: 44px;
+  padding: 8px 10px;
+  color: #8a8a8a;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ios-actionsheet-button {
+  cursor: pointer;
+  line-height: 43px;
+  font-size: 20px;
+  color: #007aff;
+}
+.ios-actionsheet-button.ios-actionsheet-button-color, .ios-actionsheet-label.ios-actionsheet-button-color{
+  color: #ff3b30;
+}
+.ios-actionsheet-button.ios-actionsheet-button-bold, .ios-actionsheet-label.ios-actionsheet-button-bold{
+  font-weight: bold;
+}
+.ios-actionsheet-button.ios-actionsheet-button-disable, .ios-actionsheet-label.ios-actionsheet-button-disable{
+  opacity: 0.95;
+  color: #8e8e93;
+}
+.ios-actionsheet-button:first-child, .ios-actionsheet-label:first-child {
+  border-radius: 4px 4px 0 0;
+}
+.ios-actionsheet-button:last-child, .ios-actionsheet-label:last-child {
+  border-radius: 0 0 4px 4px;
+}
+.ios-actionsheet-button:last-child:after, .ios-actionsheet-label:last-child:after{
+  display: none;
+}
+.ios-actionsheet-button:first-child:last-child, .ios-actionsheet-label:first-child:last-child {
+  border-radius: 4px;
+}

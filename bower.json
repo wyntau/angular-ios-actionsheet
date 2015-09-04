@@ -1,0 +1,22 @@
+{
+  "name": "angular-ios-actionsheet",
+  "main": "angular-ios-actionsheet.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Treri/angular-ios-actionsheet",
+  "authors": [
+    "Treri <treri.liu@gmail.com>"
+  ],
+  "description": "iOS7+ style actionsheet service for angular",
+  "keywords": [
+    "angular",
+    "actionsheet"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
