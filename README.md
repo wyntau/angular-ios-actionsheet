@@ -23,6 +23,22 @@ buttonObject keys:
 - label, boolean
 - onClick, function, a data object which contains index, parentIndex and button will be passed in
 
+    one example of buttonObject
+    ```js
+    {
+        text: 'button',
+        color: true,
+        bold: true,
+        disable: false,
+        label: false,
+        onClick: function(data){
+            // data.index
+            // data.parentIndex
+            // data.button
+        }
+    }
+    ```
+
 when label or disable is true, the button can't be clicked
 
 ### License
