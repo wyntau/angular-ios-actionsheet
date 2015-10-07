@@ -8,7 +8,7 @@ bower install angular-ios-actionsheet
 
 ### Usage
 1. include `angular-ios-aleretview.js` and `angular-ios-actionsheet.css` in you html
-2. include `ios-actionsheet` in you angular dependencies
+2. include `angular-ios-actionsheet` in you angular dependencies
 3. inject `iosActionSheet` in you angular app
 
 ### Option

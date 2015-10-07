@@ -1,4 +1,4 @@
-angular.module('ios-actionsheet', [])
+angular.module('angular-ios-actionsheet', [])
 .directive('iosActionSheet', function(){
   return {
     restrict: 'AE',
@@ -22,7 +22,7 @@ angular.module('ios-actionsheet', [])
   '$document',
   '$log',
   function($rootScope, $compile, $animate, $q, $document, $log){
-    function ActionSheet(buttons){
+    function iosActionSheet(buttons){
 
       if(!angular.isArray(buttons)){
         $log.error('iosActionSheet expect an array of buttons');
@@ -72,10 +72,10 @@ angular.module('ios-actionsheet', [])
         });
       };
 
-      $animate.enter($element, $document[0].body);
+      $animate.enter($element, $document[0].body, $document[0].body.lastChild);
 
       return deferred.promise;
     }
-    return ActionSheet;
+    return iosActionSheet;
   }
 ]);

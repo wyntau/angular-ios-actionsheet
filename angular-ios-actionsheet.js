@@ -1,11 +1,11 @@
 /*!
- * angular-ios-actionsheet 1.0.0
+ * angular-ios-actionsheet 1.1.0
  * iOS7+ style actionsheet service for angular
  * License: MIT
  * Author: Treri
- * build: Fri Sep 04 2015 21:03:51 GMT+0800 (CST)
+ * build: Wed Oct 07 2015 11:35:35 GMT+0800 (CST)
  **/
-angular.module('ios-actionsheet', [])
+angular.module('angular-ios-actionsheet', [])
 .directive('iosActionSheet', function(){
   return {
     restrict: 'AE',
@@ -29,7 +29,7 @@ angular.module('ios-actionsheet', [])
   '$document',
   '$log',
   function($rootScope, $compile, $animate, $q, $document, $log){
-    function ActionSheet(buttons){
+    function iosActionSheet(buttons){
 
       if(!angular.isArray(buttons)){
         $log.error('iosActionSheet expect an array of buttons');
@@ -79,10 +79,10 @@ angular.module('ios-actionsheet', [])
         });
       };
 
-      $animate.enter($element, $document[0].body);
+      $animate.enter($element, $document[0].body, $document[0].body.lastChild);
 
       return deferred.promise;
     }
-    return ActionSheet;
+    return iosActionSheet;
   }
 ]);
